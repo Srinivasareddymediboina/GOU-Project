@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+{% load static %}
+<!-- saved from url=(0014)about:internet -->
+<html lang="en">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- CSRF Token -->
+        <meta name="csrf-token" content="H7qqWSGzrQQmqocDOuqDXsAkYph181mC3sfNSWfm">
+        <title>DOT AP Integrated Management System - Register</title>
+<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/app.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/animate.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+       
+    </head>
+    <body class="gray-bg">
+        <div class="row banner-bg">
+            <div class="col-md-12 col-md-offset-2">
+                <div class="col-md-1 text-center"></div>
+                <div class="col-md-6 text-center "><h1 class="text-white" style="margin-top: 10px;">
+                        DOT AP Integrated Management System</h1>
+                        </div>
+                <div class="col-md-1 text-center"></div>
+
+            </div>
+        </div>
+        <div id="wrapper">
+            {% if messages %}
+    {% for i in messages %}
+    <div class="alert alert-{{ i.tags }}">{{ i }}</div>
+    {% endfor %}
+    {% endif %}
+
+            <div class="middle-box loginscreen text-center full-width loginscreen">
+    <div>
+
+
+            <h2 class="text-center" style="color: black;">Registration Form</h2>
+
+
+<center>
+        <form class="m-t" role="form" method="POST" enctype="multipart/form-data" action="{% url 'register' %}">
+            {% csrf_token %}
+            
+            <div class="form-group">
+                <div class="col-md-14">
+                    First Name<br>{{ form.first_name}}
+
+                </div>
+
+            </div>
+            <div class="form-group">
+                <div class="col-md-14">
+                    Last Name<br>{{ form.last_name}}
+
+                </div>
+
+            </div>
+            <div class="form-group">
+                <div class="col-md-14">
+                    Eamil<br>{{ form.email}}
+
+                </div>
+
+            </div>
+            <div class="form-group">
+                <div class="col-md-14">
+                    Username<br>{{ form.username }}
+
+                </div>
+
+            </div>
+            
+            <div class="form-group">
+                <div class="col-md-14">
+
+                    Enter Password<br>{{ form.password1}}
+                    
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-14">
+                    Enter Confirm Password<br>{{ form.password2}}
+                </div>
+
+            </div>
+
+
+
+            <button type="submit" class="btn btn-danger block m-b">Register</button>
+              <a href="{% url 'login' %}">Login Page</a>
+        </form>
+        </center>
+        <p class="m-t"> <small>IMS © 2020<br></small> </p>
+    </div>
+</div>
+        </div>
+
+    
+
+</body></html>
