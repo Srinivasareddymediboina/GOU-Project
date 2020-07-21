@@ -103,10 +103,7 @@
                     <a href="{% url 'document' %}"><i class="fa fa-files-o"></i> <span class="nav-label">Document Tracker</span> </a>
                 </li>
 
-                <li>
-                    <a href="{% url 'userrecived' user.username %}"><i class="fa fa-files-o"></i> <span class="nav-label">Document Reciver</span> </a>
-                    
-                </li>
+                
                 
                                 
                 <li class=" ">
@@ -218,6 +215,7 @@
 
         <div class="wrapper wrapper-content animated fadeInRight">
             <div class="row">
+
                 <div class="col-lg-12">
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">
@@ -234,23 +232,31 @@
                                 
 
                             <div class="form-group">
-                                <div class="col-sm-4 col-sm-offset-2">
+                                <div class="col-sm-12 col-sm-offset-2">
                                     <input class="btn btn-primary  " type="submit" value="Submit">
                                 </form>
+
                                 <button class="btn btn-white " type="submit">Cancel</button>
-                                </div>
+                                
+                            </div>
+                            <center><a href="{% url 'userrecived' user.username %}">Show Recived Files</a></center>
+                        
+                        </div>
+                        
 
                             </div>
 
-                        </div>
-                            
-                    
-                    
+                </div>
+               
+          </div>
 
+        </div>
 
-                        </div>
+        
+                      
+            </div>
 
-                    </div>
+        </div>
                 </div>
 
             </div>

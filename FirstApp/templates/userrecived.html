@@ -103,10 +103,6 @@
                     <a href="{% url 'document' %}"><i class="fa fa-files-o"></i> <span class="nav-label">Document Tracker</span> </a>
                 </li>
 
-                <li>
-                    <a href="{% url 'userrecived' user.username %}"><i class="fa fa-files-o"></i> <span class="nav-label">Document Reciver</span> </a>
-                    
-                </li>
                 
                                 
                 <li class=" ">
@@ -200,7 +196,7 @@
                             <div class="col-lg-4">
                                 <ul class="pull-right breadcrumb">
                                     <li>
-                                        <a href="http://ims.ict.go.ug/documents/index.html"><i class="fa fa-home margin-right-5 text-large text-dark"></i> Home</a>
+                                        </i> Home</a>
                                     </li>
                                     
                                     <li>
@@ -220,11 +216,10 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="ibox float-e-margins">
+                        <h5>Transfer To </h5>
                         <div class="ibox-title">
-                            <h5>Transfer To </h5>
-
-                        </div>
-                        <table border="2px">
+                            
+                            <table border="2px">
                             
                                 <thead>
                                     <tr>
@@ -239,7 +234,7 @@
                             {% for info in data %}
                             <tr>
                                 <td>{{ info.id }}</td>
-                                <td>{{ info.u_file }}</td>
+                                <td><a href="/static/images/{{ info.u_file }}">{{ info.u_file }}</a></td>
                                 <td>{{ info.u_description }}</td>
                                 <td>{{ info.typeoffiles }}</td>
                             </tr>
@@ -248,6 +243,9 @@
 
                         </table>
 
+
+                        </div>
+                        
                         
 
                         </div>

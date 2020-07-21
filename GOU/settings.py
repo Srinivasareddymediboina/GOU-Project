@@ -75,7 +75,7 @@ WSGI_APPLICATION = 'GOU.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
+"""DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'ddhjgr2ndvcmdc',
@@ -84,8 +84,8 @@ DATABASES = {
         'HOST':'ec2-35-172-73-125.compute-1.amazonaws.com',
         'PORT':'5432',
     }
-}
-"""DATABASES = {
+}"""
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'dotap',
@@ -94,7 +94,7 @@ DATABASES = {
         'HOST':'',
         'PORT':'',
     }
-}"""
+}
 
 
 # Password validation
