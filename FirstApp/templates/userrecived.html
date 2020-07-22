@@ -234,7 +234,7 @@
                             {% for info in data %}
                             <tr>
                                 <td>{{ info.id }}</td>
-                                <td><a href="/static/images/{{ info.u_file }}">{{ info.u_file }}</a></td>
+                                <td><a href="/static/images/{{ info.u_file }}" download>{{ info.u_file }}</a></td>
                                 <td>{{ info.u_description }}</td>
                                 <td>{{ info.typeoffiles }}</td>
                             </tr>
