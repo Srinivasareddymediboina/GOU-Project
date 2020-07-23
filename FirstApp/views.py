@@ -15,13 +15,16 @@ from django.contrib.auth.decorators import login_required
 
 def register(request):
 	if request.method=='POST':
-		form=UserSignUpForm(request.POST)
-		if form.is_valid():
-			form.save()
-			messages.success(request,request.POST['username']+' is Succefully Registered')
-			#return render(request,'login.html')
+		#form=UserSignUpForm(request.POST)
+		user=User.objects.create_user(first_name=request.POST['first_name'],
+			last_name=request.POST['last_name'],email=request.POST['email'],
+			username=request.POST['username'],password=request.POST['password1'])
+		desig=request.POST['desig']
+		Desig.objects.create(desig=desig,user=user)
+		messages.success(request,request.POST['username']+' is Succefully Registered')
+	pform=user_desig()
 	form = UserSignUpForm()
-	return render(request,'Register.html',{'form':form})
+	return render(request,'Register.html',{'form':form,'pform':pform})
 
 @login_required
 def welcome(request):

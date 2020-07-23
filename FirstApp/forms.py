@@ -20,3 +20,7 @@ class selectfileForm(ModelForm):
 	class Meta:
 		model=selectfile
 		fields='__all__'
+class user_desig(ModelForm):
+	class Meta:
+		model=Desig
+		fields='__all__'
