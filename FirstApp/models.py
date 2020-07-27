@@ -5,17 +5,18 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 
 class Desig(models.Model):
-	options=[(1,'CLERK'),(2,'JTO'),(3,'AD'),(4,'ADET'),(5,'ADG'),(6,'DIR'),(7,'DDG'),(8,'OTHER DDGS'),(9,'SRDDG')]
+	options=[('clerk','CLERK'),("jto",'JTO'),("ad",'AD'),("adet",'ADET'),('adg','ADG'),('dir','DIR'),('ddg','DDG'),('other ddgs','OTHER DDGS'),('srddg','SRDDG')]
 	desig=models.CharField(max_length=50,null=True,choices=options)
 	role=models.IntegerField(null=True)
 	user=models.OneToOneField(User,on_delete=models.CASCADE)
-	notify=models.IntegerField(null=True,default=0)
+	
 
 class documentuserdata(models.Model):
 	u_name=models.CharField(max_length=100,null=True)
 	u_file=models.FileField(upload_to='documentuser/',null=True)
 	u_description=models.TextField(max_length=500,null=True)
 	typeoffiles=models.CharField(max_length=50, null=True)
+	notify=models.IntegerField(null=True,default=0)
 
 
 

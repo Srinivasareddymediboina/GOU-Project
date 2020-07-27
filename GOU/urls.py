@@ -24,7 +24,7 @@ urlpatterns = [
     path('dashboard/',views.dashboard, name='dashboard'),
     path('welcome/',views.welcome,name='welcome'),
     path('register/',views.register, name='register'),
-    path('document/',views.document, name='document'),
+    path('document/<str:username>/',views.document, name='document'),
     path('selectafile/',views.selectafile, name='selectafile'),
     path('login/',uv.LoginView.as_view(template_name='login.html'),name='login'),
     path('logout/',uv.LogoutView.as_view(template_name='logout.html'),name='logout'),

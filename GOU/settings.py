@@ -88,7 +88,7 @@ WSGI_APPLICATION = 'GOU.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'dotap',
+        'NAME': 'andhradot',
         'USER':'root',
         'PASSWORD':'',
         'HOST':'',

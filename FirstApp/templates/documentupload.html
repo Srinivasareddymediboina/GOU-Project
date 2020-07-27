@@ -100,7 +100,7 @@
                 
                 
                 <li class=" ">
-                    <a href="{% url 'document' %}"><i class="fa fa-files-o"></i> <span class="nav-label">Document Tracker</span> </a>
+                    <a href="{% url 'document' user.username %}"><i class="fa fa-files-o"></i> <span class="nav-label">Document Tracker</span> </a>
                 </li>
 
                 <li>
@@ -166,6 +166,9 @@
                     <li>
                     <span class="m-r-sm text-muted welcome-message">Welcome {{User.username}} </span>
                 </li>
+                <b><a href="{% url 'userrecived' user.username %}" type="button" class="btn btn-info">
+        Notifications <span class="badge badge-light">{{n}}</span>
+      </a></b>
                 
                 <li class="dropdown">
                     <a class="dropdown-toggle count-info" data-toggle="dropdown" href="http://ims.ict.go.ug/documents/create#">

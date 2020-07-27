@@ -33,17 +33,28 @@ def welcome(request):
 
 @login_required
 def dashboard(request):
-	n=documentuserdata.objects.last()
-
 	return render(request,'welcome.html')
 
 
 
 
 @login_required
-def document(request):
+def document(request,username):
+	l=[]
+	if documentuserdata.objects.filter(u_name=username):
+
+		data=documentuserdata.objects.filter(u_name=username)
+
+		
+		for i in data:
+			l.append(i.notify)
+
 	form=typeoffile()
-	return render(request,'document.html',{'form':form})
+	if len(l)>0:
+
+		return render(request,'document.html',{'form':form,'n':l[-1]})
+	else:
+		return render(request,'document.html',{'form':form})
 
 def tofile(request):
 	if request.method=='POST':
@@ -53,30 +64,52 @@ def tofile(request):
 
 def userrecived(request,username):
 	data=documentuserdata.objects.filter(u_name=username)
+	for i in data:
+		i.notify=0
+		i.save()
 	return render(request,'userrecived.html',{'data':data})
 
 @login_required
 def selectafile(request):
+
+	mydata=documentuserdata.objects.all()
+	names={}
+	for i in mydata:
+		names[i.id]=i.u_name
+	
 	if request.method=='POST':
 		u_name=request.POST['towhom']
 		u_file=request.FILES['file']
 		u_description=request.POST['description']
-		data=documentuserdata.objects.last()
-	
-		data.u_name=u_name
-		data.u_file=u_file
-		data.u_description=u_description
-		#userdata=Desig.objects.get(user_id=user.id)
-		"""print(User.id)
-								if data.notify==0:
-									data.notify=data.notify+1
-								else:
-									data.notify=0"""
+		ids=0
+		value=''
+		if u_name in names.values():
+			for i,k in names.items():
+				if k==u_name:
+					ids=i
+					value=k
 
-		
-		#data=documentuserdata(u_name=u_name,u_file=u_file,u_description=u_description)
-		data.save()
-		
+		if u_name in names.values():
+
+			olddata=documentuserdata.objects.get(id=ids,u_name=value)
+			data=documentuserdata.objects.last()
+			data.u_name=u_name
+			data.u_file=u_file
+			data.u_description=u_description
+			if olddata.notify==None:
+				data.notify=1
+			else:
+				data.notify=olddata.notify+1
+			data.save()
+		else:
+			data=documentuserdata.objects.last()
+			data.u_name=u_name
+			data.u_file=u_file
+			data.u_description=u_description
+			data.notify=1
+			data.save()
+
+
 		return HttpResponse('File Transfered Succefully...!')
 		#messages.success(request,request.POST['towhom']+' File transfered Succefully')
 	
