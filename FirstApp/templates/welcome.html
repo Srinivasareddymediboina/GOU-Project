@@ -165,8 +165,11 @@
                 </div>
                 <ul class="nav navbar-top-links navbar-right" width=100%>
                     <li>
-                    <span class="m-r-sm text-muted welcome-message">Welcome, {{ user.username }}, </span>
+                    <span class="m-r-sm text-muted welcome-message">Welcome {{ user.username }} </span>
                 </li>
+                <b><a href="{% url 'userrecived' user.username %}" type="button" class="btn btn-info">
+        Notifications <span class="badge badge-light">{{n}}</span>
+      </a></b>
                 
                 <li class="dropdown">
                     <a href="{% url 'logout' %}">

@@ -9,6 +9,7 @@ class Desig(models.Model):
 	desig=models.CharField(max_length=50,null=True,choices=options)
 	role=models.IntegerField(null=True)
 	user=models.OneToOneField(User,on_delete=models.CASCADE)
+	notify=models.IntegerField(null=True,default=0)
 
 class documentuserdata(models.Model):
 	u_name=models.CharField(max_length=100,null=True)

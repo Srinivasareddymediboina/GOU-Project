@@ -20,7 +20,7 @@ from django.contrib.auth import views as uv
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    #path('',views.index, name='index'),
+    
     path('dashboard/',views.dashboard, name='dashboard'),
     path('welcome/',views.welcome,name='welcome'),
     path('register/',views.register, name='register'),
@@ -31,5 +31,5 @@ urlpatterns = [
     path('forgotpwd/',views.forgotpwd, name='forgotpwd'),
     path('tofile/',views.tofile, name='tofile'),
     path('userrecived/<str:username>/',views.userrecived,name='userrecived'),
-    #path('mailsend/',views.mailsend,name='mailsend'),
+    path('notification/',views.notification,name='notification'),
 ]
